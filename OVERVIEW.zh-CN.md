@@ -2,7 +2,7 @@ Host Teleport 用于在本地电脑与远端 SSH 服务器（如云端开发机�
 
 ## 工作原理
 
-执行推送（Push）或拉取（Pull）时，插件通过 `rsync` 增量同步工作区目录（包含未 commit 的代码修改和新建文件，默认排除 `node_modules`、`dist` 等构建目录），同时同步 Paseo 项目配置、工作区记录、会话时间线 JSON 以及底层 Agent 原生上下文文件（如 Codex 和 Claude Code 的 `.jsonl` 会话文件），并自动将路径中的 `$HOME` 映射改写为目标主机的用户目录路径。
+执行推送（Push）或拉取（Pull）时，插件通过 `rsync` 增量同步工作区目录（包含未 commit 的代码修改和新建文件，默认排除 `node_modules`、`dist` 等构建目录）。`rsync` 会覆盖接收端有差异的同名文件，但不会删除接收端多余文件（不使用 `--delete`）。随后同步 Paseo 项目配置、工作区记录、会话时间线 JSON 以及底层 Agent 原生上下文文件（如 Codex 和 Claude Code 的 `.jsonl` 会话文件），并自动将路径中的 `$HOME` 映射改写为目标主机的用户目录路径。推送完成后默认会在远端主机执行 `paseo daemon restart` 以立即加载迁移后的会话。
 
 ## 环境要求
 

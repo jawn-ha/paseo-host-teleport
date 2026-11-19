@@ -3,7 +3,7 @@
   "name": "Host Teleport",
   "description": "Teleport workspaces, uncommitted code edits, and live agent sessions across SSH hosts.",
   "icon": "assets/icon.png",
-  "media": [],
+  "media": ["assets/teleport-popover.png"],
   "translations": {
     "zh-CN": {
       "name": "Host Teleport",

@@ -2,7 +2,7 @@ Host Teleport moves Paseo workspaces, uncommitted file edits, and live agent ses
 
 ## How it works
 
-When you push or pull a workspace, the plugin runs `rsync` over SSH to synchronize workspace directories (including uncommitted Git changes and untracked files, while excluding build artifacts such as `node_modules` and `dist`). It then transfers Paseo project definitions, workspace records, agent timeline JSON files, and native provider session files (Codex and Claude Code), rewriting home directory paths so the conversation can resume on the target machine.
+When you push or pull a workspace, the plugin runs `rsync` over SSH to synchronize workspace directories (including uncommitted Git changes and untracked files, while excluding build artifacts such as `node_modules` and `dist`). `rsync` overwrites files that differ on the receiving side without deleting extra files (`--delete` is not used). It then transfers Paseo project definitions, workspace records, agent timeline JSON files, and native provider session files (Codex and Claude Code), rewriting home directory paths so the conversation can resume on the target machine. After a push completes, the plugin restarts the Paseo daemon on the remote host (`paseo daemon restart`) by default so the transferred sessions load immediately.
 
 ## Setup
 
