@@ -1,0 +1,9 @@
+{
+  "id": "paseo-host-teleport",
+  "name": "Host Teleport",
+  "description": "Teleport workspaces, uncommitted code edits, and live agent sessions across SSH hosts.",
+  "media": [],
+  "requirements": {
+    "paseo": ">=0.16.0"
+  }
+}

@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" fill="none">
+  <defs>
+    <linearGradient id="canvasBg" x1="0" y1="0" x2="960" y2="470" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B1120"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="pushGrad" x1="324" y1="0" x2="632" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#818CF8"/>
+    </linearGradient>
+    <linearGradient id="pullGrad" x1="636" y1="0" x2="328" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#818CF8"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 1 L9 5 L0 9 Z" fill="#38BDF8"/>
+    </marker>
+    <style>
+      .title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; fill: #F8FAFC; }
+      .subtitle { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 500; fill: #94A3B8; }
+      .label { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; fill: #E2E8F0; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #94A3B8; }
+      .badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="960" height="470" rx="18" fill="url(#canvasBg)"/>
+  <rect x="1" y="1" width="958" height="468" rx="17" stroke="#1E293B" stroke-width="2"/>
+
+  <!-- Header -->
+  <text x="32" y="42" class="title" font-size="20">⚡ Host Teleport — Architecture &amp; Data Flow</text>
+  <text x="32" y="64" class="subtitle" font-size="12.5">Direct peer-to-peer SSH &amp; rsync handoff with automatic cross-OS $HOME path rewriting · Zero third-party relays</text>
+
+  <!-- Entry Points Strip -->
+  <rect x="32" y="82" width="896" height="42" rx="10" fill="#111827" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="48" y="107" class="label" font-size="12" fill="#38BDF8">4 Native Paseo Entry Points:</text>
+  <rect x="236" y="92" width="136" height="22" rx="6" fill="#1E293B"/><text x="304" y="107" text-anchor="middle" class="badge" font-size="11" fill="#E2E8F0">Sidebar Studio</text>
+  <rect x="384" y="92" width="138" height="22" rx="6" fill="#1E293B"/><text x="453" y="107" text-anchor="middle" class="badge" font-size="11" fill="#E2E8F0">Composer Pill</text>
+  <rect x="534" y="92" width="176" height="22" rx="6" fill="#1E293B"/><text x="622" y="107" text-anchor="middle" class="mono" font-size="11" fill="#38BDF8">/teleport push | pull</text>
+  <rect x="722" y="92" width="190" height="22" rx="6" fill="#1E293B"/><text x="817" y="107" text-anchor="middle" class="badge" font-size="11" fill="#E2E8F0">⌘K Command Center</text>
+
+  <!-- LEFT PANEL: Local Machine -->
+  <rect x="32" y="144" width="286" height="294" rx="14" fill="#111827" stroke="#38BDF8" stroke-opacity="0.45" stroke-width="1.5"/>
+  <rect x="32" y="144" width="286" height="38" rx="14" fill="#172554" fill-opacity="0.55"/>
+  <text x="48" y="168" class="title" font-size="14">💻 Local Machine (macOS / Linux)</text>
+
+  <!-- Local Card 1 -->
+  <rect x="48" y="196" width="254" height="66" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="62" y="217" class="label" font-size="12.5">Workspace &amp; Uncommitted Edits</text>
+  <text x="62" y="235" class="mono" font-size="11">/Users/alice/Code/&lt;project&gt;</text>
+  <text x="62" y="252" class="subtitle" font-size="10.5">Git working tree · untracked files · diffs</text>
+
+  <!-- Local Card 2 -->
+  <rect x="48" y="274" width="254" height="72" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="62" y="295" class="label" font-size="12.5">Paseo State &amp; Agent Timelines</text>
+  <text x="62" y="313" class="mono" font-size="11">~/.paseo/projects/*.json</text>
+  <text x="62" y="330" class="mono" font-size="11">~/.paseo/agents/&lt;cwd&gt;/*.json</text>
+
+  <!-- Local Card 3 -->
+  <rect x="48" y="358" width="254" height="64" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="62" y="379" class="label" font-size="12.5">Native Agent Context</text>
+  <text x="62" y="397" class="mono" font-size="11">~/.codex/sessions/**/*.jsonl</text>
+  <text x="62" y="413" class="mono" font-size="11">~/.claude/projects/**/*.jsonl</text>
+
+  <!-- RIGHT PANEL: Remote Host -->
+  <rect x="642" y="144" width="286" height="294" rx="14" fill="#111827" stroke="#818CF8" stroke-opacity="0.5" stroke-width="1.5"/>
+  <rect x="642" y="144" width="286" height="38" rx="14" fill="#312E81" fill-opacity="0.55"/>
+  <text x="658" y="168" class="title" font-size="14">🖥️ Remote Host (Cloud / GPU / VPS)</text>
+
+  <!-- Remote Card 1 -->
+  <rect x="658" y="196" width="254" height="66" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="672" y="217" class="label" font-size="12.5">Mirrored Workspace Directory</text>
+  <text x="672" y="235" class="mono" font-size="11">/home/alice/Code/&lt;project&gt;</text>
+  <text x="672" y="252" class="subtitle" font-size="10.5">Instant continuation · excludes artifacts</text>
+
+  <!-- Remote Card 2 -->
+  <rect x="658" y="274" width="254" height="72" rx="10" fill="#0F172A" stroke="#1E293B" stroke-width="1.5"/>
+  <text x="672" y="295" class="label" font-size="12.5">Rewritten Paseo &amp; Agent Context</text>
+  <text x="672" y="313" class="mono" font-size="11">~/.paseo · ~/.codex · ~/.claude</text>
+  <text x="672" y="330" class="subtitle" font-size="10.5">$HOME &amp; serverId remapped cleanly</text>
+
+  <!-- Remote Card 3 -->
+  <rect x="658" y="358" width="254" height="64" rx="10" fill="#0F172A" stroke="#34D399" stroke-opacity="0.4" stroke-width="1.5"/>
+  <text x="672" y="379" class="label" font-size="12.5" fill="#34D399">24/7 Paseo Daemon Live Reload</text>
+  <text x="672" y="397" class="mono" font-size="11">paseo daemon restart</text>
+  <text x="672" y="413" class="subtitle" font-size="10.5">Resume immediately on Web or iOS App</text>
+
+  <!-- CENTER: SSH Transport Flows -->
+  <!-- SSH Config Discovery Badge -->
+  <rect x="356" y="148" width="248" height="32" rx="16" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="480" y="168" text-anchor="middle" class="badge" font-size="11.5" fill="#CBD5E1">🔍 Auto-discovered ~/.ssh/config</text>
+
+  <!-- Arrow 1: rsync Code Push -->
+  <line x1="324" y1="224" x2="632" y2="224" stroke="url(#pushGrad)" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <rect x="366" y="200" width="228" height="44" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-opacity="0.5" stroke-width="1.2"/>
+  <text x="480" y="218" text-anchor="middle" class="badge" font-size="11.5" fill="#38BDF8">1. Incremental Code Sync</text>
+  <text x="480" y="235" text-anchor="middle" class="mono" font-size="10.5">rsync -azs (skips node_modules)</text>
+
+  <!-- Arrow 2: Session + Path Rewrite Push -->
+  <line x1="324" y1="308" x2="632" y2="308" stroke="url(#pushGrad)" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <rect x="358" y="282" width="244" height="50" rx="8" fill="#0F172A" stroke="#818CF8" stroke-opacity="0.55" stroke-width="1.2"/>
+  <text x="480" y="301" text-anchor="middle" class="badge" font-size="11.5" fill="#A5B4FC">2. Session Bundle + Path Rewrite</text>
+  <text x="480" y="319" text-anchor="middle" class="mono" font-size="10.5">/Users/alice ──▶ /home/alice</text>
+
+  <!-- Arrow 3: Bidirectional Pull -->
+  <line x1="636" y1="390" x2="328" y2="390" stroke="url(#pullGrad)" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <rect x="358" y="364" width="244" height="50" rx="8" fill="#0F172A" stroke="#34D399" stroke-opacity="0.55" stroke-width="1.2"/>
+  <text x="480" y="383" text-anchor="middle" class="badge" font-size="11.5" fill="#34D399">3. Bidirectional Pull Back</text>
+  <text x="480" y="401" text-anchor="middle" class="mono" font-size="10.5">updatedAt-safe merge + rsync</text>
+</svg>
